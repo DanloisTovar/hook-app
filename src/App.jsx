@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import componetents:
-import { CounterApp, CounterwithCustomHook } from './components';
+import { CounterApp, CounterwithCustomHook, SimpleForm } from './components';
 
 function App() {
     return (
@@ -11,7 +11,9 @@ function App() {
                 <hr />
                 <CounterApp />
                 <hr />
-                {<CounterwithCustomHook />}
+                <CounterwithCustomHook />
+                <hr />
+                <SimpleForm />
             </div>
         </div>
     );
