@@ -2,6 +2,10 @@ import React from 'react';
 import { useFetch } from '../hooks/useFetch';
 
 export const MultipleCustomHooks = () => {
+    const { data, isLoading, hasError } = useFetch(
+        ' https://api.breakingbadquotes.xyz/v1/quotes/5',
+    );
+    const { author, quote } = !!data && data[0];
     return (
         <div>
             {isLoading ? (
