@@ -2,15 +2,6 @@ import React from 'react';
 import { useFetch } from '../hooks/useFetch';
 
 export const MultipleCustomHooks = () => {
-    const { data, isLoading, hasError } = useFetch(
-        'https://api.breakingbadquotes.xyz/v1/quotes/1 ',
-    );
-
-    // !desestructurar api:
-
-    const { quote, author } = !!data && data[0];
-
-    console.log(data);
     return (
         <div>
             {isLoading ? (
