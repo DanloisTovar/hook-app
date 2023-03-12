@@ -2,6 +2,8 @@ import React from 'react';
 
 // import componetents:
 import { CounterApp, CounterwithCustomHook, SimpleForm } from './components';
+import { FormCustomhook } from './components/FormCustomhook';
+import { MultipleCustomHooks } from './components/MultipleCustomHooks';
 
 function App() {
     return (
@@ -14,6 +16,9 @@ function App() {
                 <CounterwithCustomHook />
                 <hr />
                 <SimpleForm />
+                <FormCustomhook />
+
+                <MultipleCustomHooks />
             </div>
         </div>
     );

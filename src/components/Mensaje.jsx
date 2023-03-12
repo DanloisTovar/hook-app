@@ -22,6 +22,7 @@ export const Mensaje = ({ resultado }) => {
             <h4>Mensaje:</h4>
             {resultado ? <p>{resultado}</p> : <p>Usuario "No" existe</p>}
             {<p>Coordenadas: {JSON.stringify(coords)}</p>}
+            <hr />
         </>
     );
 };
