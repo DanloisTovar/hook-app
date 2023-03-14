@@ -1,6 +1,6 @@
 import React from 'react';
-/* import { useFetch } from '../hooks/useFetch'; */
 import { useFetch, useCounter } from '../hooks';
+import { IsLoardingQuote, Quote } from './';
 
 export const MultipleCustomHooks = () => {
     const { counter, incrementar, decrementar, reset } = useCounter(1);
@@ -11,34 +11,23 @@ export const MultipleCustomHooks = () => {
     const { author, quote } = !!data && data[0];
 
     return (
-        <div>
+        <>
             {isLoading ? (
-                <>
-                    <h1>BreakingBad Quotes</h1>
-                    <div className="alert alert-info text-center">
-                        <h1>Cargando...</h1>
-                    </div>
-                </>
+                <IsLoardingQuote />
             ) : (
-                <>
-                    <h1>BreakingBad Quotes</h1>
-                    <div className="blockquote text-end">
-                        <p className="mb-1">{quote}</p>
-
-                        <footer className="blockquote-footer mt-5">
-                            {author}
-                        </footer>
-                    </div>
-
-                    <button
-                        disabled={isLoading}
-                        className="btn btn-primary"
-                        onClick={() => incrementar()}
-                    >
-                        Siguiente
-                    </button>
-                </>
+                <Quote
+                    author={author}
+                    quote={quote}
+                    incrementar={incrementar}
+                />
             )}
-        </div>
+            <button
+                disabled={isLoading}
+                className="btn btn-primary"
+                onClick={() => incrementar()}
+            >
+                Siguiente
+            </button>
+        </>
     );
 };
