@@ -1,9 +1,16 @@
 import React from 'react';
 
 // import componetents:
-import { CounterApp, CounterwithCustomHook, SimpleForm } from './components';
-import { FormCustomhook } from './components/FormCustomhook';
-import { MultipleCustomHooks } from './components/MultipleCustomHooks';
+import {
+    CounterApp,
+    CounterwithCustomHook,
+    SimpleForm,
+    Memo,
+    MemoHook,
+    FormCustomhook,
+    MultipleCustomHooks,
+    CallbackHook,
+} from './components';
 
 function App() {
     return (
@@ -19,6 +26,13 @@ function App() {
                 <FormCustomhook />
 
                 <MultipleCustomHooks />
+                <hr />
+                <Memo />
+                <hr />
+                <MemoHook />
+
+                <hr />
+                <CallbackHook />
             </div>
         </div>
     );
