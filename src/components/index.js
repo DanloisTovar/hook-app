@@ -11,3 +11,4 @@ export * from './FormCustomhook';
 export * from './CounterwithCustomHook';
 export * from './CounterApp';
 export * from './CallbackHook';
+export * from './Reducers';

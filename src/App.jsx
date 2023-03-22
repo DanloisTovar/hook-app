@@ -10,13 +10,14 @@ import {
     FormCustomhook,
     MultipleCustomHooks,
     CallbackHook,
+    Reducers,
 } from './components';
 
 function App() {
     return (
         <div className="App">
             <div>
-                <h1>Practica hooks!</h1>
+                {/*  <h1>Practica hooks!</h1>
                 <hr />
                 <CounterApp />
                 <hr />
@@ -32,7 +33,9 @@ function App() {
                 <MemoHook />
 
                 <hr />
-                <CallbackHook />
+                <CallbackHook /> */}
+
+                <Reducers />
             </div>
         </div>
     );
