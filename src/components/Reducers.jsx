@@ -1,5 +1,8 @@
 import React, { useReducer } from 'react';
 
+// !components:
+import { Tarealist, FormTarea } from '../reducers/components/';
+
 // !reducer:
 import { tareasReducer } from '../reducers/reducer';
 
@@ -12,14 +15,24 @@ const initialState = [
         done: false,
     },
     {
-        id: new Date().getTime() * 3,
+        id: new Date().getTime() * (2 + 1),
         description: 'Recoletar la  piedra del Poder',
+        done: false,
+    },
+
+    {
+        id: new Date().getTime() * (2 + 4),
+        description: 'Recoletar la  piedra del juicio',
         done: false,
     },
 ];
 
 export const Reducers = () => {
     const [tareaState, dispatch] = useReducer(tareasReducer, initialState);
+
+    const handlenewtarea = (tarea) => {
+        console.log({ tarea });
+    };
     return (
         <>
             <h1>
@@ -28,29 +41,13 @@ export const Reducers = () => {
 
             <div className="row">
                 <div className="col-7">
-                    <ul className="list-group">
-                        <li className="list-group-item d-flex justify-content-between">
-                            <span className="align-self-center">Tarea 1</span>
-                            <button className="btn btn-danger">Borrar</button>
-                        </li>
-                    </ul>
+                    <Tarealist tarea={tareaState} />
                 </div>
                 <div className="col-5">
                     <h4>Agregar Tarea</h4>
                     <hr />
-                    <form>
-                        <input
-                            type="text"
-                            placeholder="Que hay que hacer..."
-                            className="form-control"
-                        />
-                        <button
-                            className="btn btn-outline-primary mt-3 btn-block"
-                            type="submit"
-                        >
-                            Agregar
-                        </button>
-                    </form>
+
+                    <FormTarea onNewTarea={handlenewtarea} />
                 </div>
             </div>
         </>
