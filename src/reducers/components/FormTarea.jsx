@@ -20,7 +20,7 @@ export const FormTarea = ({ onNewTarea }) => {
 
         onNewTarea(newTarea);
 
-        onResetValueForm();
+        onResetValueForm(newTarea);
     };
     return (
         <>

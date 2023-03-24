@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 // !components:
 import { Tarealist, FormTarea } from '../reducers/components/';
@@ -9,7 +9,7 @@ import { tareasReducer } from '../reducers/reducer';
 // !initial state:
 
 const initialState = [
-    {
+    /*  {
         id: new Date().getTime(),
         description: 'Recoletar la  piedra del alma',
         done: false,
@@ -24,14 +24,38 @@ const initialState = [
         id: new Date().getTime() * (2 + 4),
         description: 'Recoletar la  piedra del juicio',
         done: false,
-    },
+    }, */
 ];
 
+const init = () => {
+    return JSON.parse(localStorage.getItem('tareas')) || [];
+};
+
 export const Reducers = () => {
-    const [tareaState, dispatch] = useReducer(tareasReducer, initialState);
+    const [tareaState, dispatch] = useReducer(
+        tareasReducer,
+        initialState,
+        init,
+    );
+
+    useEffect(() => {
+        localStorage.setItem('tareas', JSON.stringify(tareaState));
+    }, [tareaState]);
 
     const handlenewtarea = (tarea) => {
-        console.log({ tarea });
+        const accion = {
+            type: '[TAREA] add tarea!!!',
+            payload: tarea,
+        };
+        dispatch(accion);
+    };
+
+    const handleDeletetarea = (tarea) => {
+        const accion = {
+            type: '[TAREA] Borrar tarea!!!',
+            payload: tarea,
+        };
+        dispatch(accion);
     };
     return (
         <>

@@ -1,7 +1,7 @@
 export const tareasReducer = (initialState = [], accion) => {
     switch (accion.type) {
-        case 'algo':
-            return initialState;
+        case '[TAREA] add tarea!!!':
+            return [...initialState, accion.payload];
             break;
 
         default:
