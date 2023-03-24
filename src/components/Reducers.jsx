@@ -50,12 +50,11 @@ export const Reducers = () => {
         dispatch(accion);
     };
 
-    const handleDeletetarea = (tarea) => {
-        const accion = {
+    const handleDeletetarea = (id) => {
+        dispatch({
             type: '[TAREA] Borrar tarea!!!',
-            payload: tarea,
-        };
-        dispatch(accion);
+            payload: id,
+        });
     };
     return (
         <>
@@ -65,7 +64,10 @@ export const Reducers = () => {
 
             <div className="row">
                 <div className="col-7">
-                    <Tarealist tarea={tareaState} />
+                    <Tarealist
+                        tarea={tareaState}
+                        OnDeleteTarea={handleDeletetarea}
+                    />
                 </div>
                 <div className="col-5">
                     <h4>Agregar Tarea</h4>

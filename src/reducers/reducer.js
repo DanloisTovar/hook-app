@@ -3,7 +3,9 @@ export const tareasReducer = (initialState = [], accion) => {
         case '[TAREA] add tarea!!!':
             return [...initialState, accion.payload];
             break;
-
+        case '[TAREA] Borrar tarea!!!':
+            return initialState.filter((tarea) => tarea.id !== accion.payload);
+            break;
         default:
             return initialState;
     }
