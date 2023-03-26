@@ -12,7 +12,7 @@ export const TareaItem = ({
             <li className="list-group-item d-flex justify-content-between">
                 <span
                     className={`align-self-center ${
-                        done && 'text-decoration-line-through'
+                        done ? 'text-decoration-line-through' : ''
                     }`}
                     onClick={() => onToggleTarea(id)}
                 >
