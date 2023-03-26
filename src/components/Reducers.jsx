@@ -3,71 +3,25 @@ import React, { useEffect, useReducer } from 'react';
 // !components:
 import { Tarealist, FormTarea } from '../reducers/components/';
 
-// !reducer:
-import { tareasReducer } from '../reducers/reducer';
-
-// !initial state:
-
-const initialState = [
-    /*  {
-        id: new Date().getTime(),
-        description: 'Recoletar la  piedra del alma',
-        done: false,
-    },
-    {
-        id: new Date().getTime() * (2 + 1),
-        description: 'Recoletar la  piedra del Poder',
-        done: false,
-    },
-
-    {
-        id: new Date().getTime() * (2 + 4),
-        description: 'Recoletar la  piedra del juicio',
-        done: false,
-    }, */
-];
-
-const init = () => {
-    return JSON.parse(localStorage.getItem('tareas')) || [];
-};
+// !hooks:
+import { useTarea } from '../reducers/hooks';
 
 export const Reducers = () => {
-    const [tareaState, dispatch] = useReducer(
-        tareasReducer,
-        initialState,
-        init,
-    );
+    // !useTarea:
 
-    useEffect(() => {
-        localStorage.setItem('tareas', JSON.stringify(tareaState));
-    }, [tareaState]);
-
-    const handlenewtarea = (tarea) => {
-        const accion = {
-            type: '[TAREA] add tarea!!!',
-            payload: tarea,
-        };
-        dispatch(accion);
-    };
-
-    const handleDeletetarea = (id) => {
-        dispatch({
-            type: '[TAREA] Borrar tarea!!!',
-            payload: id,
-        });
-    };
-
-    const handleToggleTarea = (id) => {
-        dispatch({
-            type: '[TAREA] Toggle tarea!!!',
-            payload: id,
-        });
-    };
-
+    const {
+        tareaState,
+        handlenewtarea,
+        handleDeletetarea,
+        handleToggleTarea,
+        tareasContar,
+        tareasPendientes,
+    } = useTarea();
     return (
         <>
             <h1>
-                App Tareas: (10), <small>pendientes: (2)</small>
+                App Tareas: {tareasContar},{' '}
+                <small>pendientes: {tareasPendientes}</small>
             </h1>
 
             <div className="row">
