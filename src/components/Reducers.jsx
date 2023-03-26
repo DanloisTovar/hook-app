@@ -56,6 +56,14 @@ export const Reducers = () => {
             payload: id,
         });
     };
+
+    const handleToggleTarea = (id) => {
+        dispatch({
+            type: '[TAREA] Toggle tarea!!!',
+            payload: id,
+        });
+    };
+
     return (
         <>
             <h1>
@@ -67,6 +75,7 @@ export const Reducers = () => {
                     <Tarealist
                         tarea={tareaState}
                         OnDeleteTarea={handleDeletetarea}
+                        onToggleTarea={handleToggleTarea}
                     />
                 </div>
                 <div className="col-5">

@@ -3,7 +3,7 @@ import React from 'react';
 // !componentes:
 import { TareaItem } from './TareaItem';
 
-export const Tarealist = ({ tarea = [], OnDeleteTarea }) => {
+export const Tarealist = ({ tarea = [], OnDeleteTarea, onToggleTarea }) => {
     return (
         <>
             <ul className="list-group">
@@ -13,6 +13,7 @@ export const Tarealist = ({ tarea = [], OnDeleteTarea }) => {
                             {...tarea}
                             key={tarea.id}
                             OnDeleteTarea={OnDeleteTarea}
+                            onToggleTarea={onToggleTarea}
                         />
                     );
                 })}
