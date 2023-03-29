@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import componetents:
-import {
+/* import {
     CounterApp,
     CounterwithCustomHook,
     SimpleForm,
@@ -11,7 +11,9 @@ import {
     MultipleCustomHooks,
     CallbackHook,
     Reducers,
-} from './components';
+} from './components'; */
+
+import { Main } from '../useContext/Main';
 
 function App() {
     return (
@@ -35,7 +37,7 @@ function App() {
                 <hr />
                 <CallbackHook /> */}
 
-                <Reducers />
+                <Main />
             </div>
         </div>
     );
